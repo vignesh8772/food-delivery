@@ -1,0 +1,29 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.size1{
+    gap: 30px;
+    margin: 30px 0px;
+}
+.size1::-webkit-scrollbar{
+    display: none;
+}
+.size1 img{
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.size1 p{
+    margin-top: 10px;
+    color:#343434;
+    font-size: max(1.4vw,16px);
+    cursor: pointer;
+}
+.size1 .active{
+    border: 20px solid tomato;
+    padding: 2px;
+}
