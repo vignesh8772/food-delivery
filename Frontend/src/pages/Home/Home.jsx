@@ -1,21 +1,27 @@
-import React from 'react'
+import Navba from "../../components/nav";
 import { useState } from "react";
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import MenuProduct from '../MenuProduct/MenuProduct'
 import FoodDispaly from '../../components/FoodDisplay/FoodDispaly';
+import AppDownload from '../../components/AppDownload/AppDownload';
 
 
-const Home = () => {
-  const [category, setcategory] = useState("all")
+const Home = ({setloginpop}) => {
+  const [category, setcategory] = useState("All")
   return (
-    <div> 
+    <>
+    <div  className="size"> 
+      <Navba setloginpop={setloginpop}/>
       <Header/>
       <MenuProduct category={category} setcategory={setcategory} />
-    
       <FoodDispaly category={category} />
-      <Footer/>
+      <AppDownload/>
     </div>
+    <Footer/>
+    
+    </>
+
   )
 }
 

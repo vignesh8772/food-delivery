@@ -10,16 +10,19 @@ const FoodDispaly = ({category}) => {
     <div className="food-display">
       <h1 className="">Top Dishes near you!!!</h1>
       <div className="food-display-list">
-        {food_list.map((items,index) => (
-          <FoodItems
+        {food_list.map((items) => {
+          if (category==="All" ||category===items.category) {
+           return <FoodItems
             key={crypto.randomUUID()}
             id={items._id}
             name={items.name}
-            description={items.description}
+            description={items.description} 
             price={items.price}
             image={items.image}
           />
-        ))}
+          }
+          
+          })}
       </div>
     </div>
   );

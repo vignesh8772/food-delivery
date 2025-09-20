@@ -2,7 +2,7 @@ import { assets } from '../assets/frontend_assets/assets';
 import "./nav.css"
 import { useState } from 'react';
 
-const Nav = () => {
+const Nav = ({setloginpop}) => {
   const [menu, setmenu] = useState("Home");
   return (
     <div className='nav'>
@@ -33,7 +33,8 @@ const Nav = () => {
                     <img src={assets.basket_icon} alt="basket_icon" title='goes to cart' className='cursor-pointer' />
                     <div className=''></div>
                 </div>
-                <button className='bg-transparent text-[16px] text-[#248cee] border-2 border-[#248cee] w-18 h-8 rounded-3xl p-2.5 cursor-pointer hover:bg-cyan-50 duration-300'>sign in</button>
+                <button className='bg-transparent text-[16px] text-[#248cee] border-2 border-[#248cee] w-18 h-8 rounded-3xl p-2.5 cursor-pointer hover:bg-cyan-50 duration-300' 
+                onClick={()=>(setloginpop(true))}>sign in</button>
             </div>
     </div>
   )
