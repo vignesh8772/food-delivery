@@ -6,7 +6,7 @@ const loginPop = ({setloginpop}) => {
 
     const [current, setcurrent] = useState("Sign up")
   return (
-    <div className='login-pop'>
+    <div className='login-pop'>  
         <form className='login-from'>
            <div className="login-title">
             <h2>{current}</h2>

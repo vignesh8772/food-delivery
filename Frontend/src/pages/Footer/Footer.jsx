@@ -1,11 +1,12 @@
 import './Footer.css'
 import  { assets } from '../../assets/frontend_assets/assets'
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className='footer'>
       <div className='footer-content'>
         <div className='footer-left'>
-          <img src={assets.logo} alt="" />
+          <Link to="/" ><img src={assets.logo} alt="" /></Link>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus officia porro, at autem maxime cum hic non nesciunt eligendi inventore sit odio quisquam id, aspernatur ratione quidem provident explicabo ad?</p>
           <div className='footer-social'>
             <img src={assets.facebook_icon} alt="" />

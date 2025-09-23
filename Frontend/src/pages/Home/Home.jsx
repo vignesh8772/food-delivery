@@ -1,7 +1,6 @@
 import Navba from "../../components/nav";
 import { useState } from "react";
 import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
 import MenuProduct from '../MenuProduct/MenuProduct'
 import FoodDispaly from '../../components/FoodDisplay/FoodDispaly';
 import AppDownload from '../../components/AppDownload/AppDownload';
@@ -18,8 +17,6 @@ const Home = ({setloginpop}) => {
       <FoodDispaly category={category} />
       <AppDownload/>
     </div>
-    <Footer/>
-    
     </>
 
   )

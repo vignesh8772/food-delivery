@@ -4,3 +4,15 @@
     justify-content: space-between;
     align-items: center;
 }
+.navbar-icon{
+    position: relative;
+}
+.navbar-icon .dot{
+    position: absolute;
+    min-height: 10px;
+    min-width: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
