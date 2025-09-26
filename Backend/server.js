@@ -7,6 +7,7 @@ import foodrouter from "./routes/foodroute.js";
 
 
 
+
 // app config
 const app = express();
 const port = process.env.PORT||5000;
@@ -20,6 +21,8 @@ dbconnect();
 
 //API 
 app.use("/api/food",foodrouter);
+app.use("/image",express.static("uploads"))
+
 
 app.get("/", (req, res) => {
   res.send("API Working");
