@@ -4,9 +4,11 @@ import Add from "./pages/Add/Add"
 import List from './pages/List/List.jsx'
 import Order from './pages/Orders/Order.jsx'
 import {Routes,Route} from "react-router-dom"
+import {ToastContainer} from 'react-toastify'
 
 const admin = () => {
   return (<div>
+    <ToastContainer/>
     <Navbar/>
     <hr />
     <div className="app-content">

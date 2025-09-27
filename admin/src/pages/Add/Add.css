@@ -2,7 +2,7 @@
     width: 70%;
     margin-left: max(5vw,25px);
     margin-top: 50px;
-    color: #6d6d6d;
+    color: #000000;
     font-size: 16px;
 }
 
@@ -27,7 +27,7 @@
     width: max(40%,280px);
 }
 
-.add-product-name, .add-product-descrition textarea{
+.add-product-name input, .add-product-descrition textarea{
     padding: 10px;
 }
 .add-category-price{
