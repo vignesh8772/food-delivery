@@ -2,15 +2,15 @@ import "./Add.css";
 import { assets } from "../../assets/admin_assets/assets";
 import { useState } from "react";
 import axios from "axios";
- import { toast } from "react-toastify";
-const Add = () => {
-  const url = "http://localhost:5000";
+import { toast } from "react-toastify";
+const Add = ({url}) => {
   const [image, setimage] = useState(false);
   const [data, setdata] = useState({
     name: "",
     description: "",
     price: "",
     category: "Salad",
+    date:new Date().getDate(),
   });
 
   const onChangeHandler = (event) => {
@@ -25,14 +25,16 @@ const Add = () => {
     fromData.append("description", data.description);
     fromData.append("price", Number(data.price));
     fromData.append("category", data.category);
+    fromData.append("date",data.date);
     fromData.append("image", image);
-    const response = await axios.post(`${url}/api/food/add`,fromData)
+    const response = await axios.post(`${url}/api/food/add`,fromData);
     if (response.data.success) {
       setdata({
         name: "",
         description: "",
         price: "",
         category: "option",
+        date:"",
       })
       setimage(false);
       toast.success(response.data.message);
@@ -113,6 +115,10 @@ const Add = () => {
               placeholder="$20"
               required
             />
+          </div>
+          <div className="timedisplay">
+            <p>Date</p>
+            <input onChange={onChangeHandler} value={data.date} type="date" name="date" id="" />
           </div>
         </div>
         <button type="submit" className="btn">
