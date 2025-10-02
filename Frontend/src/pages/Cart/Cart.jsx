@@ -1,11 +1,10 @@
 import  { useContext } from 'react'
 import {StoreContext} from '../Context/StoreContext'
 import "./cart.css"
-import { food_list } from '../../assets/frontend_assets/assets';
 import {useNavigate} from "react-router-dom"
 import {toast}from "react-toastify"
 const Cart = () => {
-  const {cart,addToCart,removeCart,gettotalCartAmount} = useContext(StoreContext);
+  const {cart,addToCart,removeCart,gettotalCartAmount,url,food_list} = useContext(StoreContext);
   const nagivation=useNavigate();
   return (
     <div className='cart'>
@@ -26,7 +25,7 @@ const Cart = () => {
               return(
                 <div key={crypto.randomUUID()}>
                 <div className='cart-title cart-items'>
-                  <img src={Items.image} alt={Items.name} />
+                  <img src={url+"/image/"+Items.image} alt={Items.name} />
                   <p>{Items.name}</p>
                   <p>${Items.price}</p>
                   <p>{cart[Items._id]}</p>

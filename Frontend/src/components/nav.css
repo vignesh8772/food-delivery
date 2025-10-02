@@ -1,18 +1,72 @@
-.nav{
-    padding: 20px 0px;
+.nav {
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.navbar-icon{
+
+.navbar-icon {
     position: relative;
 }
-.navbar-icon .dot{
+
+/* Badge for cart (supports numbers, not just a dot) */
+.navbar-icon .dot {
     position: absolute;
-    min-height: 10px;
-    min-width: 10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
     background-color: tomato;
-    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
     top: -8px;
     right: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 150px;
+}
+
+/* Show dropdown on hover (desktop) */
+.navbar-profile:hover .nav-profile-dropdown,
+.navbar-profile.show-dropdown .nav-profile-dropdown {
+    display: flex;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.nav-profile-dropdown img{
+    width: 20px;
+}
+
+.nav-profile-dropdown li:hover {
+    background-color: #f5f5f5;
+    border-radius: 4px;
 }

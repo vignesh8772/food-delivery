@@ -1,14 +1,28 @@
 import { assets } from '../assets/frontend_assets/assets';
 import { StoreContext } from '../pages/Context/StoreContext';
 import "./nav.css";
-import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from "lucide-react"; // icons for hamburger/close
 
 const Nav = ({ setloginpop }) => {
   const [menu, setmenu] = useState("Home");
   const [isOpen, setIsOpen] = useState(false); // mobile menu state
-  const { gettotalCartAmount } = useContext(StoreContext);
+  const { gettotalCartAmount,token,settoken } = useContext(StoreContext);
+  const nagi=useNavigate();
+  
+  // ? refresh and pass the token 
+  useEffect(()=>
+    {
+      let testtoken=localStorage.getItem("token");
+      settoken(testtoken);
+  },[])
+
+  const Logout = () => {
+    localStorage.removeItem("token")
+    settoken("");
+  }
+  
 
   return (
     <nav className="nav w-full shadow-sm px-4 py-3 flex justify-between items-center bg-white">
@@ -48,12 +62,23 @@ const Nav = ({ setloginpop }) => {
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
           )}
         </div>
+        {!token?
         <button
           className="hidden md:block bg-transparent text-sm text-[#248cee] border-2 border-[#248cee] px-4 py-1.5 rounded-3xl cursor-pointer hover:bg-cyan-50 duration-300"
           onClick={() => setloginpop(true)}
         >
           Sign in
         </button>
+        :
+        <div className='navbar-profile'>
+          <img src={assets.profile_icon} alt="profile_icon" />
+          <ul className="nav-profile-dropdown">
+            <li><img src={assets.bag_icon} alt="Order" title='Order' />Order</li>
+            <hr />
+            <li onClick={Logout}><img src={assets.logout_icon} alt="Logout" title='Logout' />Logout</li>
+          </ul>
+        </div>
+        }
 
         {/* Hamburger menu for mobile */}
         <button
@@ -79,6 +104,7 @@ const Nav = ({ setloginpop }) => {
               {item}
             </p>
           ))}
+          {!token?
           <button
             className="bg-transparent text-sm text-[#248cee] border-2 border-[#248cee] px-10 py-1.5 rounded-3xl cursor-pointer hover:bg-cyan-50 duration-300"
             onClick={() => {
@@ -87,7 +113,15 @@ const Nav = ({ setloginpop }) => {
             }}
           >
             Sign in
-          </button>
+          </button>:
+          <div className='navbar-profile-moblie'>
+            <img src={assets.profile_icon} alt="profile" />
+            <ul className="nav-profile-dropdown-mobile">
+              <li><img src={assets.bag_icon} alt="Order" title='Order' /></li>
+              <hr />
+              <li><img src={assets.logout_icon} alt="Logout" title='Logout' /></li>
+            </ul>
+          </div>}
         </div>
       )}
     </nav>

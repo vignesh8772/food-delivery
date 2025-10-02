@@ -46,9 +46,9 @@ const listfood=async(req,res)=>{
     }
 }
 
-const Unqielistfood=async(req,res)=>{
+const uniquelistfood=async(req,res)=>{
     try {
-        const single=await foodmodel.findById(req.params.id);
+        const single=await foodmodel.findById(req.body.id);
         res.json({
             success:true,
             data:single,
@@ -83,4 +83,4 @@ const Unqielistfood=async(req,res)=>{
 
 }
 
-export { addFood,listfood,Unqielistfood,Removeitems}
+export { addFood,listfood,uniquelistfood,Removeitems}
