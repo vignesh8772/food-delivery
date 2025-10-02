@@ -1,6 +1,4 @@
-
 import  Jwt  from "jsonwebtoken";
-
 
 const authMiddleware = async(req,res,next) => {
     const {token} =req.headers;
@@ -8,19 +6,17 @@ const authMiddleware = async(req,res,next) => {
         return res.json({
             success:false,
             message:"not a token"
-        })
-    }
+        })}
     try {
         const token_decode=Jwt.verify(token,process.env.JWT_SECRET);
         req.body.userId= token_decode.id;
         next();
         } catch (error) {
-            console.log(error);
             res.json({
                 success:false,
-                message:"invaild-token!!!"
+                message:"invaild-token!!!",
+                error:error.message
             })
         }
 }
-
 export default authMiddleware;
